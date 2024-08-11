@@ -1,0 +1,171 @@
+.gridcontainer {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 100vh; /* Full viewport height */
+}
+
+.grid-item1 {
+    display: flex;
+    flex-direction: column;
+    background-image: url("E:/housing/public/assets/cover.jpg");
+
+    background-size: cover; /* Cover the entire grid item */
+    justify-content: flex-end; /* Push content to the bottom */
+    padding: 0px;
+     /* Center the background image */
+    height: 100%; /* Full height of the grid container */
+    color: white; /* Make text white for better visibility */
+    text-align: center;
+}
+.new {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+.signupbtn {
+    background-color: transparent;
+    color: #007bff; /* Primary color for the button */
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+    margin-left: 8px;
+    padding-bottom: 5px;
+}
+
+.signupbtn:hover {
+    color: #0056b3; /* Darker shade on hover */
+}
+
+.grid-item1 h5 {
+    margin: 0;
+    padding-bottom: 30px;
+    font-family: "Cambo", serif;
+}
+
+.grid-item1 button:focus {
+    outline: none;
+    box-shadow: none; /* Remove default focus outline */
+}
+
+.grid-item2 {
+    display: flex;
+    background-color: #ffffff;
+    height: 100%; /* Full height of the grid container */
+    align-items: center; /* Vertically center the content */
+    justify-content: center;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .logo img {
+    width: 120px; /* Slightly larger for better visibility */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular shape */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Softer shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for effects */
+  }
+  
+  .logo img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  }
+.loginbox,.signupbox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Full width of the grid item */
+    height: 100%; /* Full height of the grid item */
+}
+
+.logo h1 {
+    margin: 0; /* Remove default margin */
+}
+.form {
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    border: 1px solid #ddd; /* Light border */
+    background-color: #fff; /* White background */
+}
+.fontfor{
+    
+        font-family: "Cambo", serif;
+        font-weight: 400;
+        font-style: normal;
+     
+      
+    
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 0%;
+    margin-top: 5px;
+    margin-bottom: 27px;
+    border: none;
+    border-bottom: 1px solid #010000;
+    border-radius: 0;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .google-signup {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.google-icon {
+    display: flex;
+    align-items: center; /* Center icon and text vertically */
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.google-icon img {
+    width: 30px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px; /* Space between icon and text */
+}
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    background-color: #007bff; /* Primary color */
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 30%;
+    margin-bottom: 25px;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+  }
+  
+  .button:active {
+    background-color: #004080; /* Even darker shade on click */
+    transform: translateY(0); /* Remove lift on click */
+  }
+  
+  .button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.5); /* Blue focus ring */
+  }
+ 
