@@ -7,7 +7,7 @@
 .grid-item1 {
     display: flex;
     flex-direction: column;
-    background-image: url("E:/housing/public/assets/cover.jpg");
+    background-image: url("E:\housing\public\assets\cover.jpg");
 
     background-size: cover; /* Cover the entire grid item */
     justify-content: flex-end; /* Push content to the bottom */
