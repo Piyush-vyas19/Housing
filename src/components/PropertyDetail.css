@@ -1,242 +1,332 @@
 .property-card {
-    font-family: 'Arial', sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative; /* Ensure positioning context for sidebar */
-  }
-  
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure positioning context for sidebar */
+}
+
+.property-content {
+  padding-right: 320px; /* Make space for sidebar */
+}
+
+.property-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.emi {
+  font-size: 14px;
+  color: #666;
+}
+
+.loan-btn {
+  background: none;
+  border: none;
+  color: #1a73e8;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.more-options {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.property-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.property-images {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.main-image {
+  width: 70%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  width: 30%;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.more-photos {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.property-features {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.property-features .feature .icon {
+  width: 35px; /* Adjust size as needed */
+  height: 35px;
+  margin-right: 4px;
+}
+
+.property-details {
+  margin-bottom: 15px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.detail-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.detail-value {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.detail-subvalue {
+  font-size: 12px;
+  color: #666;
+}
+
+.property-highlights {
+  margin-bottom: 15px;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-btn, .phone-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-btn {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.phone-btn {
+  background-color: white;
+  color: #d32f2f;
+  border: 1px solid #d32f2f;
+}
+
+.last-contact {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+}
+
+.property-sidebar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+}
+
+.sidebar-card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sidebar-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.book-btn:hover {
+  background-color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
   .property-content {
-    padding-right: 320px; /* Make space for sidebar */
-  }
-  
-  .property-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
-  }
-  
-  .price-section {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .price {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .emi {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .loan-btn {
-    background: none;
-    border: none;
-    color: #1a73e8;
-    text-decoration: underline;
-    cursor: pointer;
-    padding: 0;
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  .more-options {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .property-title {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .property-images {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .main-image {
-    width: 70%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-    width: 30%;
-  }
-  
-  .image-grid img {
-    width: 100%;
-    height: 95px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  .more-photos {
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-  }
-  
-  .property-features {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  
-  .feature {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-  }
-  
-  .property-details {
-    margin-bottom: 15px;
-  }
-  
-  .detail-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .detail-item {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-  }
-  
-  .detail-label {
-    font-size: 12px;
-    color: #666;
-  }
-  
-  .detail-value {
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .detail-subvalue {
-    font-size: 12px;
-    color: #666;
-  }
-  
-  .property-highlights {
-    margin-bottom: 15px;
-  }
-  
-  .highlight {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-  }
-  
-  .action-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .contact-btn, .phone-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .contact-btn {
-    background-color: #d32f2f;
-    color: white;
-  }
-  
-  .phone-btn {
-    background-color: white;
-    color: #d32f2f;
-    border: 1px solid #d32f2f;
-  }
-  
-  .last-contact {
-    font-size: 12px;
-    color: #666;
-    text-align: right;
+    padding-right: 0; /* Remove padding for smaller screens */
   }
   
   .property-sidebar {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 300px;
-  }
-  
-  .sidebar-card {
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .sidebar-card p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px;
-  }
-  
-  .book-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    position: static;
     width: 100%;
-    padding: 10px;
-    background-color: #666;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 15px;
+    margin-top: 20px;
   }
-  
-  .book-btn:hover {
-    background-color: #666;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .property-content {
-      padding-right: 0; /* Remove padding for smaller screens */
-    }
-    
-    .property-sidebar {
-      position: static;
-      width: 100%;
-      margin-top: 20px;
-    }
-  }
-  
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.more-details-box {
+  font-family: 'Arial', sans-serif;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Match shadow with above box */
+  max-width: 1200px;
+}
+
+.more-details-box h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px; /* Consistent margin with above sections */
+}
+
+.more-details-box .details-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.more-details-box .details-item {
+  width: 48%;
+  margin-bottom: 10px;
+}
+
+.more-details-box .details-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.more-details-box .details-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.more-details-box .description {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
