@@ -2,6 +2,8 @@ import './PropertyDetail.css';
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import AnalyticsBox from "./AnalyticsBox";
+import './AnalyticsBox.css';
 
 const PropertyDetail = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -145,6 +147,9 @@ const PropertyDetail = () => {
       </span>
     </div>
   </div>
+</div>
+<div className="analytics-view">
+  <AnalyticsBox />
 </div>
 
 
