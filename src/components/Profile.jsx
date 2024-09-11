@@ -17,8 +17,8 @@ const Profile = () => {
       id: 1,
       title: "Modern Apartment",
       price: "$350,000",
-      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
-    }
+      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    },
   ]);
 
   const [savedListings, setSavedListings] = useState([
@@ -26,8 +26,8 @@ const Profile = () => {
       id: 1,
       title: "Luxury Villa",
       price: "$1,200,000",
-      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
-    }
+      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    },
   ]);
 
   const handleEditClick = () => {
@@ -41,9 +41,9 @@ const Profile = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserDetails(prevDetails => ({
+    setUserDetails((prevDetails) => ({
       ...prevDetails,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -60,7 +60,9 @@ const Profile = () => {
           <p className="profile-email">johndoe@example.com</p>
           <p className="profile-membership">Premium Member</p>
         </div>
-        <button className="edit-profile-btn" onClick={handleEditClick}>Edit Profile</button>
+        <button className="edit-profile-btn" onClick={handleEditClick}>
+          Edit Profile
+        </button>
       </div>
 
       <div className="profile-nav">
@@ -94,7 +96,7 @@ const Profile = () => {
         {activeTab === 'overview' && (
           <div className="overview-section">
             <div className="profile-details">
-              <h2>Personal Information</h2>
+              <h2 className="section-heading">Personal Information</h2>
               <div className="detail-item">
                 <span className="detail-label">Full Name:</span>
                 <span className="detail-value">{userDetails.fullName}</span>
@@ -118,7 +120,7 @@ const Profile = () => {
             </div>
 
             <div className="account-summary">
-              <h2>Account Summary</h2>
+              <h2 className="section-heading">Account Summary</h2>
               <div className="summary-item">
                 <span className="summary-label">Listings Created:</span>
                 <span className="summary-value">5</span>
@@ -138,70 +140,87 @@ const Profile = () => {
             </div>
 
             <div className="preferences">
-              <h2>Preferences</h2>
+              <h2 className="section-heading">Preferences</h2>
               <div className="preference-item">
                 <span className="preference-label">Preferred Property Type:</span>
-                <span className="preference-value">{userDetails.preferredPropertyType}</span>
+                <span className="preference-value">
+                  {userDetails.preferredPropertyType}
+                </span>
               </div>
               <div className="preference-item">
                 <span className="preference-label">Budget Range:</span>
-                <span className="preference-value">{userDetails.budgetRange}</span>
+                <span className="preference-value">
+                  {userDetails.budgetRange}
+                </span>
               </div>
               <div className="preference-item">
                 <span className="preference-label">Preferred Locations:</span>
-                <span className="preference-value">{userDetails.preferredLocations}</span>
+                <span className="preference-value">
+                  {userDetails.preferredLocations}
+                </span>
               </div>
             </div>
           </div>
         )}
 
-{activeTab === 'properties' && (
-  <div className="properties-section">
-    <h2>My Listed Properties</h2>
-    <div className="property-grid">
-      {properties.map(property => (
-        <div key={property.id} className="property-card">
-          <img src={property.image} alt={property.title} className="property-image" />
-          <div className="property-info">
-            <h3 className="property-title">{property.title}</h3>
-            <p className="property-price">{property.price}</p>
+        {activeTab === 'properties' && (
+          <div className="properties-section">
+            <h2 className="section-heading">My Listed Properties</h2>
+            <div className="property-grid">
+              {properties.map((property) => (
+                <div key={property.id} className="property-card">
+                  <img
+                    src={property.image}
+                    alt={property.title}
+                    className="property-image"
+                  />
+                  <div className="property-info">
+                    <h3 className="property-title">{property.title}</h3>
+                    <p className="property-price">{property.price}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {properties.length === 0 && <p>No properties listed yet.</p>}
           </div>
-        </div>
-      ))}
-    </div>
-    {properties.length === 0 && <p>No properties listed yet.</p>}
-  </div>
-)}
+        )}
 
-{activeTab === 'saved' && (
-  <div className="saved-section">
-    <h2>Saved Listings</h2>
-    <div className="property-grid">
-      {savedListings.map(listing => (
-        <div key={listing.id} className="property-card">
-          <img src={listing.image} alt={listing.title} className="property-image" />
-          <div className="property-info">
-            <h3 className="property-title">{listing.title}</h3>
-            <p className="property-price">{listing.price}</p>
+        {activeTab === 'saved' && (
+          <div className="saved-section">
+            <h2 className="section-heading">Saved Listings</h2>
+            <div className="property-grid">
+              {savedListings.map((listing) => (
+                <div key={listing.id} className="property-card">
+                  <img
+                    src={listing.image}
+                    alt={listing.title}
+                    className="property-image"
+                  />
+                  <div className="property-info">
+                    <h3 className="property-title">{listing.title}</h3>
+                    <p className="property-price">{listing.price}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {savedListings.length === 0 && <p>No saved listings yet.</p>}
           </div>
-        </div>
-      ))}
-    </div>
-    {savedListings.length === 0 && <p>No saved listings yet.</p>}
-  </div>
-)}
-
+        )}
 
         {activeTab === 'messages' && (
           <div className="messages-section">
-            <h2>My Messages</h2>
+            <h2 className="section-heading">My Messages</h2>
             <div className="message-item">
               <p className="message-sender">Jane Doe</p>
-              <p className="message-preview">Hi, I'm interested in your property at...</p>
+              <p className="message-preview">
+                Hi, I'm interested in your property at...
+              </p>
             </div>
             <div className="message-item">
               <p className="message-sender">John Smith</p>
-              <p className="message-preview">Is the house still available for viewing?</p>
+              <p className="message-preview">
+                Is the house still available for viewing?
+              </p>
             </div>
             {/* Add more message items as needed */}
           </div>
