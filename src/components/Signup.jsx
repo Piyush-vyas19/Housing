@@ -15,11 +15,11 @@ export default function Signup() {
     <>
       <div className="signup-container">
         <div className="grid-item2">
-          <div className="signupbox">
+          <div className="mysignupbox">
             <div className="logo">
               <img src={logo} />
             </div>
-            <div className="form">
+            <div className="myform">
               <form>
                 <label htmlFor="Name" className="fontfor">
                   Name

@@ -38,11 +38,11 @@ export default function Login() {
       </div>
       <div className="grid-item2">
         {!showSignup ? (
-          <div className="loginbox">
+          <div className="myloginbox">
             <div className="logo">
               <img src={logo} />
             </div>
-            <div className="form">
+            <div className="myform">
               <form>
                 <label htmlFor="Email" className="fontfor">
                   Email

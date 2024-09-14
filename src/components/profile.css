@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 
 :root {
   --primary-color: #2c3e50;
@@ -12,7 +12,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: url('https://madloba.info/media/images/Boulevard_Point.max-1920x1080.format-webp.mwtmk.webp');
+  background-image: url('');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

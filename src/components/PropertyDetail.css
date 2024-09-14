@@ -249,22 +249,25 @@
 .modal {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  height: 100%;
+  height: auto; /* Adjust height based on content */
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Aligns items at the top */
   z-index: 1000;
+  padding-top: 20px; /* Adds space from the top */
 }
-
 .modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   width: 400px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  max-height: 80vh; /* Limit the height of the modal */
+  overflow-y: auto; /* Enable scrolling if content overflows */
 }
 
 .modal-content label {
