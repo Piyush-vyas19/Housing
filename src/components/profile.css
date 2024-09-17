@@ -1,6 +1,5 @@
 
-
-:root {
+.profile-page {
   --primary-color: #2c3e50;
   --secondary-color: #e74c3c;
   --text-color: #333;
@@ -233,7 +232,7 @@ h2 {
   margin-bottom: 20px;
   font-size: 26px;
   border-bottom: 2px solid var(--secondary-color);
-  text-align: center; /* Ensures heading text is centered */
+  text-align: center; 
   width: 100%;
 }
 

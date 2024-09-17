@@ -26,6 +26,7 @@ export default function Signup() {
                 </label>
                 <br></br>
                 <input
+                  className="myinput"
                   type="text"
                   placeholder="Enter Name"
                   value={CreateName}
@@ -38,6 +39,8 @@ export default function Signup() {
                 </label>
                 <br></br>
                 <input
+                  className="myinput"
+
                   type="text"
                   placeholder="Enter Mobile No."
                   value={CreatePhone}
@@ -51,6 +54,7 @@ export default function Signup() {
                 </label>
                 <br></br>
                 <input
+                  className="myinput"
                   type="text"
                   placeholder="Enter Email"
                   value={CreateEmail}
@@ -64,6 +68,7 @@ export default function Signup() {
                 </label>
                 <br></br>
                 <input
+                  className="myinput"
                   type="Password"
                   placeholder="Enter your Password"
                   value={CreatePassword}
