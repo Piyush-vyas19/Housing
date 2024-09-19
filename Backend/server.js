@@ -1,5 +1,5 @@
 const express = require('express');
-
+const authRoutes = require('./Routes/authRoutes');
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -7,6 +7,7 @@ const app = express();
 //middleware 
 app.use(bodyParser.json());
 app.use(cors());
+app.use('/api/auth', authRoutes);
 app.use("/uploads", express.static("uploads"));
 mongoose.connect("mongodb+srv://piyushvyas275:Realestatedev1@real-estate.f77l7.mongodb.net/?retryWrites=true&w=majority&appName=Real-Estate",{
     useNewUrlParser: true,

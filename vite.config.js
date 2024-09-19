@@ -6,6 +6,10 @@ export default defineConfig({
   
   server: {
     open: true, // Automatically open the app in the browser
+    proxy: {
+      '/api': 'http://localhost:5000',
+     } // Proxy API requests to the backend server
+  
   },
 
   css: {

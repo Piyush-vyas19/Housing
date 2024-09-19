@@ -10,11 +10,36 @@ export default function Login() {
   const [Password, setPassword] = useState("");
   const [showSignup, setShowSignup] = useState(false);
   const [showSignupText, setShowSignupText] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleSignupClick = () => {
     setShowSignup(!showSignup);
     setShowSignupText(!showSignupText);
   };
+  const handleloginnext = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: Email, password: Password })
+      });
+      const data = await response.json();
+      if (response.ok) {
+        console.log('Login successful', data);
+      } else {
+        console.error(data.message);
+        setErrorMessage(data.message);
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 3000);
 
+      }
+    } catch (error) {
+      console.error('Error logging in', error);
+    }
+  };
+  
   return (
     <div className="gridcontainer">
       <div className="grid-item1">
@@ -72,9 +97,11 @@ export default function Login() {
                   }}
                 />
 
-                <button type="submit" className="button" >
+                <button type="submit" className="button" onClick={handleloginnext} >
                   Next
                 </button>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+
                 <div className="google-signup">
                   --------Or login using--------
                   <div className="google-icon">
