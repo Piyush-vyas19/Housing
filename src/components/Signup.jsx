@@ -29,7 +29,7 @@ export default function Signup() {
       const data = await response.json();
 
       if (response.ok) {
-        navigate('/home');
+        navigate('/');
         
       } else {
         setErrorMessage(data.message);
