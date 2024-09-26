@@ -3,8 +3,9 @@ import "./signup.css";
 import "./login.css";
 import logo from "../icons/logo.jpg";
 import Login from "./Login";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import {useNavigate} from "react-router-dom";
+import { AuthContext } from "./AuthContext";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export default function Signup() {
   const [CreatePassword, setCreatePassword] = React.useState("");
   const [CreatePhone, setCreatePhone] = React.useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const { isLoggedIn,setisLoggedIn, login, logout, userId } = useContext(AuthContext);
   const handlesignupnext  = async (e) => {
     e.preventDefault();
     try {
@@ -30,6 +32,7 @@ export default function Signup() {
 
       if (response.ok) {
         navigate('/');
+        login(Email);
         
       } else {
         setErrorMessage(data.message);

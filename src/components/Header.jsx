@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { Link as ScrollLink } from 'react-scroll'; // For scrolling to sections within the page
 import { useNavigate } from 'react-router-dom'; // For programmatic navigation
 import { FaTimes, FaBars, FaPhoneAlt, FaUserCircle } from 'react-icons/fa'; 
 import logo23 from 'E:/housing/public/assets/logo23.jpg';
 import { useDarkMode } from './DarkModeContext';
+import { AuthContext } from './AuthContext';
 
 const Header = () => {
+    const { isLoggedIn, userId } = useContext(AuthContext);
     const { darkMode, toggleDarkMode } = useDarkMode();  
     const [isMenuOpen, setIsMenuOpen] = useState(false); 
     const navigate = useNavigate(); // Initialize useNavigate for programmatic navigation
@@ -35,6 +37,14 @@ const Header = () => {
         navigate(path);  // Use navigate to change pages
         closeMenu();     // Close the menu after navigation
     };
+    const handleProfileClick = () => {
+        if (!isLoggedIn) {
+            navigate('/login'); // Redirect to login if not logged in
+        } else {
+            navigate(`/profile`); // Redirect to profile page if logged in
+        }
+    };
+
 
     return (
         <nav className={`${darkMode ? 'dark bg-black' : 'light bg-[#f3f3f3]'} flex justify-between items-center lg:px-20 px-4 py-4 sticky top-0 z-30 shadow-md`}>
@@ -139,7 +149,7 @@ const Header = () => {
                     </button>
                 </div>
 
-                <FaUserCircle className="text-red-600 text-2xl" / >
+                <FaUserCircle className="text-red-600 text-2xl"  onClick={handleProfileClick} / >
             </div>
 
             {/* Mobile Login/Signup */}

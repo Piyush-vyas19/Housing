@@ -8,6 +8,7 @@ import RealEstatePage from './components/RealEstatePage';
 import Header from './components/Header';
 import Signup from './components/Signup';
 import { DarkModeProvider } from './components/DarkModeContext';
+import { AuthProvider } from './components/AuthContext';
 
 function App() {
   const location = useLocation(); // Get the current location
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <DarkModeProvider>
+    <AuthProvider>
       <div className="App">
         {shouldShowHeader && <Header /> } {/* Conditionally render Header */}
         <Routes>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/real-estate" element={<RealEstatePage />} />
         </Routes>
       </div>
+      </AuthProvider>
     </DarkModeProvider>
   );
 }

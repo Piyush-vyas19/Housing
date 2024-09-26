@@ -1,16 +1,21 @@
 import React from "react";
 import "./login.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import googleIcon from "../icons/google.png";
 import logo from "../icons/logo.jpg";
 import Signup from "./Signup";
+import { AuthContext } from "./AuthContext";
+import {useNavigate} from "react-router-dom";
+
 
 export default function Login() {
+  const navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [showSignup, setShowSignup] = useState(false);
   const [showSignupText, setShowSignupText] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const { isLoggedIn,setisLoggedIn, login, logout, userId } = useContext(AuthContext);
 
   const handleSignupClick = () => {
     setShowSignup(!showSignup);
@@ -27,14 +32,17 @@ export default function Login() {
       const data = await response.json();
       if (response.ok) {
         console.log('Login successful', data);
+        
         navigate('/');
+        login(Email);
+        
       } else {
         console.error(data.message);
         setErrorMessage(data.message);
         setTimeout(() => {
           setErrorMessage("");
         }, 3000);
-
+        
       }
     } catch (error) {
       console.error('Error logging in', error);

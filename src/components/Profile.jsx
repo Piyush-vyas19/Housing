@@ -1,16 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState,useContext, useEffect } from 'react';
 import './profile.css';
-
+import { AuthContext } from './AuthContext';
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [isEditing, setIsEditing] = useState(false);
+  const { isLoggedIn,setisLoggedIn, login, logout, userId } = useContext(AuthContext);
+  const email = userId;
+  const [phonenum,setphonenum] = useState("");
+  console.log(email);
   const [userDetails, setUserDetails] = useState({
-    fullName: 'John Doe',
-    location: 'New York, NY',
-    preferredPropertyType: 'Apartment, House',
-    budgetRange: '$200,000 - $500,000',
-    preferredLocations: 'Manhattan, Brooklyn',
+    fullName:'',
+    location: '',
+    preferredPropertyType: '',
+    budgetRange: '',
+    preferredLocations: '',
   });
+  const fetchname = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/getname/${email}`);
+      const data = await response.json();
+      setUserDetails((prevDetails) => ({
+        ...prevDetails,
+        fullName: data.name, // Store the name in the state
+      }));
+      console.log(data.name);
+    } catch (error) {
+      console.error('Error fetching user name:', error);
+    }
+  };
+  useEffect(() => {
+    fetchname();
+  }, [email]);
+  
+  
 
   const [properties, setProperties] = useState([
     {
@@ -57,7 +79,7 @@ const Profile = () => {
         />
         <div className="profile-info">
           <h1 className="profile-name">{userDetails.fullName}</h1>
-          <p className="profile-email">johndoe@example.com</p>
+          <p className="profile-email">{email}</p>
           <p className="profile-membership">Premium Member</p>
         </div>
         <button className="edit-profile-btn" onClick={handleEditClick}>
@@ -103,11 +125,11 @@ const Profile = () => {
               </div>
               <div className="detail-item">
                 <span className="detail-label">Email:</span>
-                <span className="detail-value">johndoe@example.com</span>
+                <span className="detail-value">{email}</span>
               </div>
               <div className="detail-item">
                 <span className="detail-label">Phone:</span>
-                <span className="detail-value">+123 456 7890</span>
+                <span className="detail-value"></span>
               </div>
               <div className="detail-item">
                 <span className="detail-label">Location:</span>
