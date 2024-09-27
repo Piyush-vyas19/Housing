@@ -9,11 +9,11 @@ const Profile = () => {
   const [phonenum,setphonenum] = useState("");
   console.log(email);
   const [userDetails, setUserDetails] = useState({
-    fullName:'',
-    location: '',
-    preferredPropertyType: '',
-    budgetRange: '',
-    preferredLocations: '',
+    fullName:"",
+    location: "",
+    preferredPropertyType: "",
+    budgetRange: "",
+    preferredLocations: "",
   });
   const fetchname = async () => {
     try {
@@ -21,8 +21,13 @@ const Profile = () => {
       const data = await response.json();
       setUserDetails((prevDetails) => ({
         ...prevDetails,
-        fullName: data.name, // Store the name in the state
+        fullName: data.name,
+        location: data.location,
+        preferredPropertyType: data.preferredPropertyType,
+        budgetRange: data.budgetRange,
+        preferredLocations: data.preferredLocations, // Store the name in the state
       }));
+      setphonenum(data.phone);
       console.log(data.name);
     } catch (error) {
       console.error('Error fetching user name:', error);
@@ -56,10 +61,31 @@ const Profile = () => {
     setIsEditing(true);
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = async () => {
     setIsEditing(false);
-    // Here you would typically send the updated details to your backend
+    const { fullName, ...detailsToUpdate } = userDetails;
+    
+    try {
+      const response = await fetch(`http://localhost:5000/api/updateuser/details/${email}`, {
+        method: 'PUT', // Use PUT for updating data
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(detailsToUpdate), // Send updated user details
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log("User details updated successfully:", data);
+      } else {
+        console.error("Error updating user details:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error updating user details:", error);
+    }
   };
+  
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -129,7 +155,7 @@ const Profile = () => {
               </div>
               <div className="detail-item">
                 <span className="detail-label">Phone:</span>
-                <span className="detail-value"></span>
+                <span className="detail-value">{phonenum}</span>
               </div>
               <div className="detail-item">
                 <span className="detail-label">Location:</span>
