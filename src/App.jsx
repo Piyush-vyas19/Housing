@@ -7,6 +7,7 @@ import PropertyDetail from './components/PropertyDetail';
 import RealEstatePage from './components/RealEstatePage';
 import Header from './components/Header';
 import Signup from './components/Signup';
+import  PropertyListing from './components/Listing';
 import { DarkModeProvider } from './components/DarkModeContext';
 import { AuthProvider } from './components/AuthContext';
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/property/:id" element={<PropertyDetail />} />
+          <Route path ="/tolist" element={<PropertyListing/>}/>
           <Route path="/real-estate" element={<RealEstatePage />} />
         </Routes>
       </div>

@@ -5,6 +5,10 @@ const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const fs = require("fs");
+const genAI = new GoogleGenerativeAI("AIzaSyCZGQ8r24jm8HjBOLXJgqfK3M7PAftoaHM");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 //middleware 
 app.use(bodyParser.json());
 app.use(cors());
@@ -23,6 +27,31 @@ mongoose.connect("mongodb+srv://piyushvyas275:Realestatedev1@real-estate.f77l7.m
 .catch((err) => {
   console.error("MongoDB connection error:", err);
 })
+const generate = async(prompt) =>{
+  try {
+    const result  = await model.generateContent(prompt);
+    return result.response.text();
+    } catch (error) {
+      console.error("Error generating content:", error);
+      return "An error occurred while generating content.";
+  
+  }
+}
+
+app.post('/api/generate-description', async (req, res) => {
+  try {
+    const prompt = req.body.prompt;  // Access the prompt from the request body
+    if (!prompt) {
+      return res.status(400).json({ error: "Prompt is required" });
+    }
+    const result = await generate(prompt);  // Use the `generate` function to generate the AI content
+    res.json({ description: result });      // Send the AI-generated description back to the client
+  } catch (err) {
+    console.error("Error generating AI description:", err);
+    res.status(500).json({ error: "Failed to generate AI description" });
+  }
+});
+
 
 
 const port = process.env.PORT || 5000;
